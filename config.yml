@@ -24,12 +24,17 @@ menu:
         # - name: Data
         #   url: data/
         #   weight: 4 
-        - name: Blog
-          url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
+        - name: Readings
+          url: readings/
           weight: 6
+        - name: Tags
+          url: tags/
+          weight: 7
 
 params:
-    description: "This website hosts some blogs and thoughts."
+    description: "Reading notes and thoughts by Yidong He."
+    # Number of readings shown on the homepage; the rest live at /readings/.
+    homeReadings: 10
     author: Yidong He
     # googleAnalyticsID: "G-XXXXX"
     DateFormat: "January 2006"
@@ -44,7 +49,7 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["books","courses","papers","data"]
+    MainSections: ["readings"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true
@@ -72,14 +77,14 @@ params:
             #   url: tags/
             # - name: Archive
             #   url: archive/
-            - name: Blog
-              url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
+            # - name: Readings
+            #   url: readings/
 
     socialIcons:
         # - name: CV
         #   url: cv.pdf
         - name: Email
-          url: yidongh@nvidia.com
+          url: mailto:yidongh@nvidia.com
         # - name: Zoom
         #   url: https://www.zoom.us/my/igelfeld
         # - name: Location

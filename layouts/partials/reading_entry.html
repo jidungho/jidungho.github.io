@@ -1,0 +1,11 @@
+{{- $host := "" }}
+{{- with .Params.source }}{{ $host = strings.TrimPrefix "www." (urls.Parse .).Host }}{{ end }}
+<article class="reading">
+  <h3 class="reading-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <div class="reading-meta">
+    {{- with .Params.author }}{{ . }}&nbsp;&middot;&nbsp;{{ end }}
+    {{- with .Params.sourceDate }}{{ . }}&nbsp;&middot;&nbsp;{{ end }}
+    {{- with .Params.source }}<a class="reading-source" href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ $host }}&nbsp;&#8599;</a>{{ end }}
+  </div>
+  <p class="reading-summary">{{ .Summary | plainify | htmlUnescape }}</p>
+</article>

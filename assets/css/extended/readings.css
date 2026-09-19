@@ -1,0 +1,82 @@
+/* Homepage: keep the profile card compact so the readings sit above the fold. */
+.main .profile {
+    min-height: auto;
+    padding: calc(var(--gap) * 1.5) var(--gap) var(--gap) var(--gap);
+}
+
+/* Readings list (homepage and /readings/) */
+.readings {
+    margin-bottom: var(--gap);
+}
+
+.readings-heading {
+    font-size: var(--h1size);
+    padding-bottom: 10px;
+    margin-bottom: calc(var(--gap) * 1.2);
+    border-bottom: 1px solid var(--border);
+}
+
+.reading {
+    margin-bottom: calc(var(--gap) * 1.6);
+}
+
+.reading:last-of-type {
+    margin-bottom: var(--gap);
+}
+
+.reading-title {
+    font-size: 19px;
+    font-weight: var(--semibold);
+    line-height: 1.35;
+    margin-bottom: 6px;
+}
+
+.reading-title a:hover {
+    box-shadow: 0 1px 0 var(--primary);
+}
+
+.reading-meta {
+    font-size: 14px;
+    color: var(--secondary);
+    margin-bottom: 10px;
+}
+
+.reading-meta a.reading-source:hover {
+    box-shadow: 0 1px 0 var(--secondary);
+}
+
+.reading-summary {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--content);
+    margin: 0;
+}
+
+.readings-more {
+    display: inline-block;
+    font-size: 15px;
+    color: var(--secondary);
+}
+
+.readings-more:hover {
+    box-shadow: 0 1px 0 var(--secondary);
+}
+
+/* Single reading page */
+.reading-single .post-header {
+    margin-bottom: calc(var(--gap) * 1.2);
+}
+
+.reading-single .reading-meta {
+    margin-bottom: 8px;
+}
+
+.reading-source-link {
+    font-size: 15px;
+    margin: 0;
+}
+
+.reading-source-link a {
+    box-shadow: 0 1px 0 var(--darkcolor);
+    color: var(--darkcolor);
+}

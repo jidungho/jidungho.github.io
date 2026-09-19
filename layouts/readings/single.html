@@ -1,0 +1,33 @@
+{{- define "main" }}
+
+{{- $host := "" }}
+{{- with .Params.source }}{{ $host = strings.TrimPrefix "www." (urls.Parse .).Host }}{{ end }}
+
+<article class="post-single reading-single">
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    <div class="reading-meta">
+      {{- with .Params.author }}{{ . }}&nbsp;&middot;&nbsp;{{ end }}
+      {{- with .Params.publisher }}{{ . }}&nbsp;&middot;&nbsp;{{ end }}
+      {{- with .Params.sourceDate }}{{ . }}{{ end }}
+    </div>
+    {{- with .Params.source }}
+    <p class="reading-source-link"><a href="{{ . }}" target="_blank" rel="noopener noreferrer">Read the original on {{ $host }}&nbsp;&#8599;</a></p>
+    {{- end }}
+  </header>
+
+  {{- if .Content }}
+  <div class="post-content">{{ .Content }}</div>
+  {{- end }}
+
+  <footer class="post-footer">
+    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+    <ul class="post-tags">
+      {{- range ($.GetTerms $tags) }}
+      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+  </footer>
+</article>
+
+{{- end }}{{/* end main */}}

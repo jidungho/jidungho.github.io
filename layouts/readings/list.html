@@ -1,0 +1,17 @@
+{{- define "main" }}
+
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+</header>
+
+{{- if .Content }}
+<div class="post-content">{{ .Content }}</div>
+{{- end }}
+
+<section class="readings">
+  {{- range .Pages }}
+  {{- partial "reading_entry.html" . }}
+  {{- end }}
+</section>
+
+{{- end }}{{/* end main */}}

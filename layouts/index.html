@@ -1,0 +1,21 @@
+{{- define "main" }}
+
+{{- if site.Params.profileMode.enabled }}
+{{- partial "index_profile.html" . }}
+{{- end }}
+
+{{- $readings := where site.RegularPages "Section" "readings" }}
+{{- $limit := site.Params.homeReadings | default 10 }}
+{{- with $readings }}
+<section class="readings">
+  <h2 class="readings-heading">Readings</h2>
+  {{- range first $limit . }}
+  {{- partial "reading_entry.html" . }}
+  {{- end }}
+  {{- if gt (len .) $limit }}
+  <a class="readings-more" href="{{ "readings/" | relURL }}">All readings &rarr;</a>
+  {{- end }}
+</section>
+{{- end }}
+
+{{- end }}{{/* end main */}}
