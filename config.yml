@@ -61,7 +61,10 @@ params:
           enabled: true
           title: Yidong He
           subtitle: "Software Engineer at Nvidia"
-          imageUrl: "picture.jpeg"
+          # YH monogram; the theme clips it to a circle and adds the hairline ring.
+          # 320px source displayed at 160 so it stays crisp on retina.
+          imageUrl: "logo.png"
+          imageTitle: "Yidong He"
           imageWidth: 160
           imageHeight: 160
           buttons:
@@ -110,9 +113,11 @@ params:
         hiddenInList: false
         hiddenInSingle: true
     label:
-      text: "Yidong he"
-      icon: favicon.ico
-      iconHeight: 18
+      text: "Yidong He"
+      # YH ligature: the Y's stem doubles as the H's left stem, and the crossbar
+      # meets it at the junction. Uses currentColor so it tracks the header text.
+      # The boxed version of the same mark is in static/favicon* for browser tabs.
+      iconSVG: '<svg viewBox="0 0 21 24" height="18" width="16" fill="none" stroke="currentColor" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.2 8.2 11.2 13.8 3.2"/><path d="M8.2 11.2v9.6"/><path d="M18.4 3.2v17.6"/><path d="M8.2 11.2h10.2"/></svg>'
 
 markup:
     goldmark:

@@ -49,3 +49,21 @@ upstream template. They are unlinked but still build and are publicly reachable.
 hugo server -D    # http://localhost:1313
 hugo --gc --minify   # must finish with no ERROR lines
 ```
+
+## Brand marks
+
+The logo is a YH ligature: the Y's stem doubles as the H's left stem, with the
+crossbar meeting it at the junction. It exists in two forms.
+
+- **Bare** (ink, no background) — inner-page header via `params.label.iconSVG` in
+  `config.yml`, and `static/logo.png` for the homepage profile, where the theme
+  clips it to a circle and draws the hairline ring.
+- **Boxed** (white on a slate-blue `#6a7ba2` tile) — the favicons only, because a
+  hairline mark disappears in a 16px browser tab.
+
+`scripts/make-icons.py` regenerates every raster from the same geometry. The header
+SVG is hand-written in `config.yml` with the same coordinates — change one, change
+the other.
+
+Note that `layouts/_default/baseof.html` hides the header on the homepage, so the
+homepage mark is the profile image, not the header logo.
