@@ -2,6 +2,9 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 tags: []
+# For a multi-part series, uncomment both; parts are linked on each page.
+# series: ""
+# part: 1
 ---
 
 One paragraph: what was built, what it showed, the headline number.

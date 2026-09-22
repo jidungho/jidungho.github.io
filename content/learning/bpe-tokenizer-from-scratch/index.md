@@ -2,6 +2,8 @@
 title: "Building GPT-2's tokenizer from scratch"
 date: 2026-09-22
 tags: ["tokenizers", "BPE", "Python", "performance"]
+series: "Tokenizers from scratch"
+part: 1
 ---
 
 Rebuilt GPT-2's byte-level BPE tokenizer in plain Python, as a set of standalone scripts, to see what the `huggingface/tokenizers` library actually has to do. A tokenizer turns out to be a vocab dict and an ordered list of merge rules, and training BPE is four short functions. Matching GPT-2's ids exactly took two more pieces, the pre-tokenizer regex and the bytes-to-unicode map; with both, the output is identical to HuggingFace's on all 338,025 tokens of Tiny Shakespeare. Uncached, the Python version runs at a third of the Rust library's speed. A four-line dict cache keyed on the pre-token makes it 1.6x faster than HF's single-string `encode`, because 95% of pre-tokens are repeats — and that same idea is a 959-line file in the Rust library.

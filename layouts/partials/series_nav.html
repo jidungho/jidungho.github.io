@@ -1,0 +1,13 @@
+{{- /* Links the parts of a multi-post series. Set `series` and `part` in front matter. */ -}}
+{{- with .Params.series }}
+{{- $series := . }}
+{{- $parts := sort (where site.RegularPages "Params.series" $series) "Params.part" }}
+<nav class="series-nav" aria-label="{{ $series }}">
+  <div class="series-name">{{ $series }}</div>
+  <ol>
+    {{- range $parts }}
+    <li>{{ if eq .RelPermalink $.RelPermalink }}<span class="series-current">{{ .Title }}</span>{{ else }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}</li>
+    {{- end }}
+  </ol>
+</nav>
+{{- end }}

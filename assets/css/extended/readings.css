@@ -80,3 +80,31 @@
     box-shadow: 0 1px 0 var(--darkcolor);
     color: var(--darkcolor);
 }
+
+/* Series navigation on learning posts */
+.series-nav {
+    margin: 0 0 calc(var(--gap) * 1.2) 0;
+    padding: 12px 16px;
+    border-left: 3px solid var(--tertiary);
+    font-size: 15px;
+    color: var(--secondary);
+}
+
+.series-name {
+    font-weight: var(--semibold);
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.series-nav ol {
+    margin: 0;
+    padding-inline-start: 20px;
+}
+
+.series-nav a {
+    box-shadow: 0 1px 0 var(--tertiary);
+}
+
+.series-current {
+    color: var(--primary);
+}

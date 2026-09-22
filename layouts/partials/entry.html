@@ -11,6 +11,7 @@
     <a class="reading-source" href="{{ .Params.source }}" target="_blank" rel="noopener noreferrer">{{ $host }}&nbsp;&#8599;</a>
     {{- else }}
     {{- .Date | time.Format site.Params.DateFormat }}
+    {{- with .Params.series }}&nbsp;&middot;&nbsp;{{ . }}, part {{ $.Params.part }}{{ end }}
     {{- end }}
   </div>
   <p class="reading-summary">{{ .Summary | plainify | htmlUnescape }}</p>

@@ -48,6 +48,11 @@ the page. Published copies are for readers: strip debug prints, fix stale paths,
 Numbers in a write-up get re-run before publishing, not copied from a README, and any "X beats Y"
 claim states what exactly was compared.
 
+A multi-part project gets `series: "<name>"` and `part: N` in each entry's front matter.
+`layouts/partials/series_nav.html` (included from `_default/single.html`) then lists every part
+at the top of each page, and the homepage meta reads "<name>, part N". New material from an
+existing project becomes a new part rather than growing an old post.
+
 ## Layout
 
 - `layouts/index.html` — homepage: compact profile card, then Learning and Readings, N most recent each (`params.homeEntries`, default 10).
