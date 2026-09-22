@@ -4,18 +4,21 @@
 {{- partial "index_profile.html" . }}
 {{- end }}
 
-{{- $readings := where site.RegularPages "Section" "readings" }}
-{{- $limit := site.Params.homeReadings | default 10 }}
-{{- with $readings }}
+{{- $limit := site.Params.homeEntries | default 10 }}
+{{- range slice (dict "section" "learning" "title" "Learning") (dict "section" "readings" "title" "Readings") }}
+{{- $title := .title }}
+{{- $url := printf "%s/" .section }}
+{{- with where site.RegularPages "Section" .section }}
 <section class="readings">
-  <h2 class="readings-heading">Readings</h2>
+  <h2 class="readings-heading">{{ $title }}</h2>
   {{- range first $limit . }}
-  {{- partial "reading_entry.html" . }}
+  {{- partial "entry.html" . }}
   {{- end }}
   {{- if gt (len .) $limit }}
-  <a class="readings-more" href="{{ "readings/" | relURL }}">All readings &rarr;</a>
+  <a class="readings-more" href="{{ $url | relURL }}">See all &rarr;</a>
   {{- end }}
 </section>
+{{- end }}
 {{- end }}
 
 {{- end }}{{/* end main */}}

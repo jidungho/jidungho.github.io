@@ -24,6 +24,9 @@ menu:
         # - name: Data
         #   url: data/
         #   weight: 4 
+        - name: Learning
+          url: learning/
+          weight: 5
         - name: Readings
           url: readings/
           weight: 6
@@ -33,8 +36,8 @@ menu:
 
 params:
     description: "Reading notes and thoughts by Yidong He."
-    # Number of readings shown on the homepage; the rest live at /readings/.
-    homeReadings: 10
+    # Entries shown per homepage section; the rest live at /learning/ and /readings/.
+    homeEntries: 10
     author: Yidong He
     # googleAnalyticsID: "G-XXXXX"
     DateFormat: "January 2006"
@@ -49,7 +52,7 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["readings"]
+    MainSections: ["learning", "readings"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true

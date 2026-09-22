@@ -2,6 +2,14 @@
 
 Personal site. Hugo + PaperMod, deployed to GitHub Pages by `.github/workflows/hugo.yml` on push to `main`.
 
+## Two sections
+
+- **Readings** (`content/readings/`) — someone else's article: source link + one-paragraph summary.
+- **Learning** (`content/learning/`) — something I built or worked through myself: a write-up with
+  code, results, and the scripts attached. Each entry is a page bundle (a folder with `index.md`).
+
+The homepage shows Learning first, then Readings.
+
 ## Adding a reading
 
 Each reading is one file in `content/readings/`. Create it with:
@@ -27,13 +35,28 @@ page but is kept off the list views.
 Summaries should be checked against the source, not just a fetch tool's paraphrase —
 these go on a public page.
 
+## Adding a learning entry
+
+```
+hugo new --kind learning learning/<slug>/index.md
+```
+
+Put the summary paragraph before `<!--more-->` and the write-up after it. Copy any scripts into
+the bundle folder and link them relatively (`[step1.py](step1.py)`); Hugo publishes them next to
+the page. Published copies are for readers: strip debug prints, fix stale paths, and say so.
+
+Numbers in a write-up get re-run before publishing, not copied from a README, and any "X beats Y"
+claim states what exactly was compared.
+
 ## Layout
 
-- `layouts/index.html` — homepage: compact profile card, then the N most recent readings (`params.homeReadings`, default 10).
-- `layouts/readings/list.html` — `/readings/`, the full list.
+- `layouts/index.html` — homepage: compact profile card, then Learning and Readings, N most recent each (`params.homeEntries`, default 10).
+- `layouts/{learning,readings}/list.html` — `/learning/` and `/readings/`, the full lists.
 - `layouts/readings/single.html` — one reading: title, source link, summary, notes, tags.
-- `layouts/partials/reading_entry.html` — shared list-entry markup used by the two list views.
-- `assets/css/extended/readings.css` — all reading-list styling; loaded after the theme CSS.
+  Learning entries use the default `layouts/_default/single.html`.
+- `layouts/partials/entry.html` — shared list-entry markup. With `source` set it shows
+  author · source date · link; without, the date it was written.
+- `assets/css/extended/readings.css` — all list styling (the `.reading*` classes serve both sections).
 
 Keep the homepage sparse: one heading, one entry per article, no cards or covers.
 
